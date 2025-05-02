@@ -1,10 +1,10 @@
 import random
 
-    
+
 #list of word that trigger the responses 
 happy_list = ["happy", "great", "good", "better", "joyful", "content", "fulfilled", "positive", "optimistic", "upbeat", "elated", "radiant", "grateful", "blissful", "satisfied", "cheerful", "exuberant", "vibrant", "ecstatic", "peaceful", "serene", "blessed", "delighted", "glorious", "heartened", "inspired", "triumphant", "zealous", "merry", "euphoric", "jovial", "gleeful", "festive", "lively", "spirited", "buoyant", "uplifting", "hopeful", "comforted", "empowered", "wonderful"]
 
-sad_list = ["sad", "negative", "boring", "melancholy", "unhappy", "disheartened", "discouraged", "gloomy", "dismal", "despondent", "downcast", "mournful", "blue", "downhearted", "crestfallen", "dejected", "forlorn", "sullen", "somber", "lugubrious", "woeful", "heartbroken", "bereaved", "mournful", "pensive", "doleful", "woebegone", "disconsolate", "lugubrious", "wistful", "regretful", "downtrodden", "defeated", "low-spirited", "demoralized", "dispirited", "apathetic", "listless", "weary", "dreary", "stifled", "glum", "uninspired", "unmotivated", "unfulfilled"]
+sad_list = ["sad", "lonely","negative", "boring", "melancholy", "unhappy", "disheartened", "discouraged", "gloomy", "dismal", "despondent", "downcast", "mournful", "blue", "downhearted", "crestfallen", "dejected", "forlorn", "sullen", "somber", "lugubrious", "woeful", "heartbroken", "bereaved", "mournful", "pensive", "doleful", "woebegone", "disconsolate", "lugubrious", "wistful", "regretful", "downtrodden", "defeated", "low-spirited", "demoralized", "dispirited", "apathetic", "listless", "weary", "dreary", "stifled", "glum", "uninspired", "unmotivated", "unfulfilled"]
 
 angry_list = ["angry", "irate", "enraged", "furious", "livid", "incensed", "outraged", "resentful", "indignant", "annoyed", "irritated", "agitated", "frustrated", "exasperated", "infuriated", "provoked", "cross", "mad", "upset", "offended", "vexed", "displeased", "hostile", "bitter", "resentful", "miffed", "peeved", "sulky", "testy", "tense", "grumpy", "irascible", "cranky", "impatient", "irate", "aggravated", "disgruntled", "exasperated", "hot-tempered", "short-tempered", "snappish", "touchy"]
 
@@ -12,8 +12,10 @@ depressed_list = ["depressed", "downhearted", "melancholic", "disheartened", "bl
 
 suicidal_list = ["suicidal", "hopeless", "desperate", "worthless", "overwhelmed", "lost", "trapped", "unbearable", "broken", "alone", "helpless", "painful", "endless", "darkness", "ending it", "ending my life", "cannot go on", "no way out", "giving up", "life is meaningless", "thinking of suicide", "suicide thoughts", "ending it all", "just want it to stop", "can't go on", "want to die", "don't want to live", "no reason to live", "wish I were dead", "I'm a burden", "tired of life", "nothing to live for", "fade away", "wish it would end", "permanent solution", "escape the pain", "end the suffering", "last resort"]
 
+
 # def for mood specificy responses 
-def happy_mood_responses():
+def happy_mood_responses(choice):
+    from voice_mode import speak
     responses = [
         "Tell me more. It sounds interesting.",
         "I am so happy for you!",
@@ -40,10 +42,16 @@ def happy_mood_responses():
         "The world is better with your positivity in it."
     ]
     response = random.choice(responses)
-    print(f"Thea: {response}")
+
+    if choice == 3:  # Voice response mode
+        speak(response)
+        print(f"Thea: {response}")
+    else:
+        print(f"Thea: {response}")
     
 
-def sad_mood_responses():
+def sad_mood_responses(choice):
+    from voice_mode import speak
     responses = [
         "I understand it's a tough time for you.",
         "You're not alone; I'm here to support you.",
@@ -62,10 +70,15 @@ def sad_mood_responses():
         "Sometimes, acknowledging your emotions is the first step towards healing."
     ]
     response = random.choice(responses)
-    print(f"Thea: {response}")
+    if choice == 3:  # Voice response mode
+        speak(response)
+        print(f"Thea: {response}")
+    else:
+        print(f"Thea: {response}")
     
 
-def angry_mood_responses():
+def angry_mood_responses(choice):
+    from voice_mode import speak
     responses = [
         "I can sense your frustration; it's okay to feel angry.",
         "Anger is a powerful emotion. Let's explore what triggered it.",
@@ -83,11 +96,16 @@ def angry_mood_responses():
         "I appreciate your honesty about your emotions. Let's address them together."
     ]
     response = random.choice(responses)
-    print(f"Thea: {response}")
+    if choice == 3:  # Voice response mode
+        speak(response)
+        print(f"Thea: {response}")
+    else:
+        print(f"Thea: {response}")
     
 
 
-def depressed_mood_responses():
+def depressed_mood_responses(choice):
+    from voice_mode import speak
     responses = [
         "I'm truly sorry to hear that you're feeling this way.",
         "You're not alone; I'm here to support you through this.",
@@ -105,10 +123,15 @@ def depressed_mood_responses():
         "Taking care of your mental health is a courageous choice. Let's do it together."
     ]
     response = random.choice(responses)
-    print(f"Thea: {response}")
+    if choice == 3:  # Voice response mode
+        speak(response)
+        print(f"Thea: {response}")
+    else:
+        print(f"Thea: {response}")
     
     
-def suicidal_mood_responses():
+def suicidal_mood_responses(choice):
+        from voice_mode import speak
         responses = [
         "I'm really sorry to hear that you're feeling this way. It's important to talk to someone who can provide support.",
         "It's okay to ask for help. Consider reaching out to a friend, family member, or mental health professional.",
@@ -122,10 +145,15 @@ def suicidal_mood_responses():
         "It's important to prioritize your safety. Connect with someone you trust or a mental health professional as soon as possible.",
         "If you're struggling, please don't face it alone. Reach out to someone who cares about you or contact a mental health helpline.",
         ]
-        responses = random.choice(responses)
-        print(f"Thea: {responses}")
+        response = random.choice(responses)
+        if choice == 3:  # Voice response mode
+           speak(response)
+           print(f"Thea: {response}")
+        else:
+           print(f"Thea: {response}")
     
-def general_responses():
+def general_responses(choice):
+    from voice_mode import speak
     responses = [
         "Okay, can you tell me more?",
         "I'm here to listen. Please share more.",
@@ -149,5 +177,9 @@ def general_responses():
     ]
 
     response = random.choice(responses)
-    print(f"Thea: {response}")
+    if choice == 3:  # Voice response mode
+        speak(response)
+        print(f"Thea: {response}")
+    else:
+        print(f"Thea: {response}")
     
