@@ -4,6 +4,8 @@ import threading
 from deepface import DeepFace
 import time
 
+# Initial Setup
+listening = False
 
 # Function to print sentiments of the sentence.
 def sentiment_scores(sentence):
@@ -29,10 +31,7 @@ def respond_to_emotion(dominant_emotion,choice):
         "neutral": "I can see you're feeling calm. It's a good place to start a conversation.",
     }
     if dominant_emotion in responses:
-        if choice == 3:  # Voice response mode
-           speak(responses[dominant_emotion])
-        else:
-           print(responses[dominant_emotion])
+        print(responses[dominant_emotion])
 
 
 def handle_user_mood(user_statement, choice,detected_emotion):

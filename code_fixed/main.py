@@ -4,8 +4,7 @@ from core import handle_user_mood, start_fake_video_call_and_listen
 from functions import (wishme)
 
 
-# Initial Setup
-listening = False
+
 
 
 def run_voice_mode(name,choice):
@@ -53,17 +52,17 @@ if __name__ == "__main__":
             user_statement = input("User: ").lower()
             
         elif choice == 2:
-            start_fake_video_call_and_listen()
+            start_fake_video_call_and_listen(choice)
             break  # Exit after video session ends
         elif choice==3:
             run_voice_mode(name,choice)
             break
-
         handle_user_mood(user_statement, choice,detected_emotion=None)
         if "ok thank you for the session" in user_statement:
-            print("Ok then see you next time")
+            print("Thea: Ok then see you next time")
             break
 
+        
         
 
         
